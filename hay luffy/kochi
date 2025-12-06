@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One Piece Minecraft - Server</title>
+  <meta name="description" content="One Piece themed Minecraft server — join grand adventures on the Grand Line!" />
+  <style>
+    :root{--bg:#0b1020;--card:#0f1724;--accent:#ffb703;--muted:#9aa4bf;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071022 0%, #0b1020 60%);color:#e6eef8;line-height:1.45}
+    .container{max-width:1100px;margin:24px auto;padding:0 20px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(45deg,#ff7b54,#ffb703);display:flex;align-items:center;justify-content:center;font-weight:700;color:#081227}
+    nav{display:flex;gap:14px}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:12px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03)}
+    h1{font-size:28px;margin:0 0 10px}
+    p.lead{color:var(--muted);margin:0 0 16px}
+    .actions{display:flex;gap:10px;margin-top:12px}
+    .btn{background:var(--accent);color:#081227;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;border:none}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(255,183,3,0.18)}
+    .server-info{display:flex;flex-direction:column;gap:8px}
+    .ip{font-family:monospace;background:var(--glass);padding:8px;border-radius:8px}
+    .status{display:flex;gap:8px;align-items:center}
+    .dot{width:12px;height:12px;border-radius:50%;background:#ffb703}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .feature{background:linear-gradient(180deg,#0d1726, #071026);padding:12px;border-radius:10px;text-align:center}
+    .gallery{display:flex;gap:8px;overflow:auto;margin-top:12px}
+    .gallery img{width:160px;height:100px;object-fit:cover;border-radius:8px}
+    footer{margin:28px 0;color:var(--muted);font-size:13px;text-align:center}
+    /* responsive */
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .gallery img{width:120px;height:80px}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">OP</div>
+        <div>
+          <div style="font-weight:800">One Piece MC</div>
+          <div style="font-size:12px;color:var(--muted)">Sail the Grand Line with friends</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#map">Map</a>
+        <a href="#join">Join</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Welcome to the <span style="color:var(--accent)">One Piece</span> Minecraft Server</h1>
+        <p class="lead">Build your crew, find Devil Fruits, capture islands and challenge rival pirate crews. This template helps you launch a stylish server landing page quickly.</p>
+
+        <div class="server-info">
+          <div class="status"><span class="dot" id="status-dot"></span><strong id="status-text">Checking status...</strong></div>
+          <div class="ip" id="server-ip">play.onepiecemc.example.com:25565</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" id="copy-ip">Copy IP</button>
+            <button class="btn ghost" id="apply-btn">Apply to Crew</button>
+          </div>
+        </div>
+
+        <div class="features" id="features">
+          <div class="feature">
+            <h4>Roleplay & Quests</h4>
+            <p style="color:var(--muted);font-size:13px">Engaging story-driven quests inspired by One Piece.</p>
+          </div>
+          <div class="feature">
+            <h4>Custom Items</h4>
+            <p style="color:var(--muted);font-size:13px">Devil Fruits, custom weapons, and sea-faring ships.</p>
+          </div>
+          <div class="feature">
+            <h4>PvP Arenas</h4>
+            <p style="color:var(--muted);font-size:13px">Challenge other captains for fame and treasure.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">Tip: Replace the server IP above with your real server address in the HTML to make the copy button work for players.</div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Server Snapshot</h3>
+        <div class="gallery" id="gallery">
+          <img src="https://via.placeholder.com/320x200?text=Ship" alt="gallery-1">
+          <img src="https://via.placeholder.com/320x200?text=Island" alt="gallery-2">
+          <img src="https://via.placeholder.com/320x200?text=Battle" alt="gallery-3">
+        </div>
+
+        <div style="margin-top:12px">
+          <a href="#map" class="btn" style="width:100%;display:inline-block;text-align:center">View Map</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" style="margin-top:20px">
+      <div class="card">
+        <h2 style="margin-top:0">About the Server</h2>
+        <p class="lead">One Piece MC is a custom Minecraft server focused on exploration and roleplay. Players join factions, sail between islands using ships, and search for legendary Devil Fruits. Use this page as a starting point and adapt content to your server rules and mods.</p>
+
+        <div style="display:flex;gap:12px;margin-top:10px">
+          <div style="flex:1">
+            <h4>How to Join</h4>
+            <ol style="color:var(--muted)">
+              <li>Open Minecraft Java Edition.</li>
+              <li>Add server with the IP above.</li>
+              <li>Join and create your pirate crew!</li>
+            </ol>
+          </div>
+          <div style="flex:1">
+            <h4>Server Rules</h4>
+            <ul style="color:var(--muted)">
+              <li>No griefing other players' builds without consent.</li>
+              <li>No cheating.</li>
+              <li>Be respectful to fellow pirates.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="map" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">World Map</h2>
+        <p class="lead">Embed your server's Dynmap, Overviewer, or a screenshot here. The example below is a placeholder iframe – replace the src with your map URL.</p>
+        <div style="background:#081226;border-radius:10px;padding:10px;margin-top:12px">
+          <iframe src="about:blank" style="width:100%;height:420px;border:0;background:#001" title="map placeholder"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" style="margin-top:18px">
+      <div class="card">
+        <h2 style="margin-top:0">Apply to Join a Crew</h2>
+        <p class="lead">Use the form below to apply. For a real site you'd handle this server-side (PHP, Node, etc.). This template uses a mailto fallback.</p>
+        <form onsubmit="handleApply(event)">
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input required placeholder="Your Minecraft name" id="mcname" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+            <input required placeholder="Crew you want to join" id="crew" style="width:220px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+          </div>
+          <textarea id="bio" placeholder="Short bio / why we should accept you" style="width:100%;margin-top:8px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit"></textarea>
+          <div style="margin-top:8px"><button class="btn" type="submit">Send Application</button></div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> One Piece MC — Template. Customize images, text and server IP.</div>
+    </footer>
+  </div>
+
+  <script>
+    // small client-side helpers — replace with server-side code for production
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const serverIpEl = document.getElementById('server-ip');
+    const copyBtn = document.getElementById('copy-ip');
+    const statusDot = document.getElementById('status-dot');
+    const statusText = document.getElementById('status-text');
+
+    copyBtn.addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(serverIpEl.textContent.trim());
+        copyBtn.textContent = 'Copied!';
+        setTimeout(()=> copyBtn.textContent = 'Copy IP',1500);
+      }catch(e){
+        copyBtn.textContent = 'Copy Failed';
+      }
+    });
+
+    // fake server status check (demo). Replace with a proper API that pings your Minecraft server.
+    function checkStatus(){
+      // Demo: alternate Online/Offline every 3 seconds so you see the UI change.
+      const now = Date.now();
+      const online = Math.floor(now/3000) % 2 === 0;
+      statusDot.style.background = online ? '#25c06d' : '#ff4d4d';
+      statusText.textContent = online ? 'Online — 42 players' : 'Offline';
+    }
+    setInterval(checkStatus,1000);
+    checkStatus();
+
+    function handleApply(e){
+      e.preventDefault();
+      const name = document.getElementById('mcname').value.trim();
+      const crew = document.getElementById('crew').value.trim();
+      const bio = document.getElementById('bio').value.trim();
+      // mailto fallback
+      const subject = encodeURIComponent('Crew Application: '+name);
+      const body = encodeURIComponent('MC name: '+name+'%0D%0ACrew: '+crew+'%0D%0A%0D%0A'+bio);
+      window.location.href = `mailto:admin@onepiecemc.example.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
